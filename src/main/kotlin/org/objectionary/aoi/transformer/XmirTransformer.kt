@@ -24,11 +24,6 @@
 
 package org.objectionary.aoi.transformer
 
-import com.jcabi.xml.XML
-import com.jcabi.xml.XMLDocument
-import com.yegor256.xsline.TrClasspath
-import com.yegor256.xsline.Xsline
-import org.eolang.parser.ParsingTrain
 import org.objectionary.aoi.data.FreeAtomAttribute
 import org.objectionary.aoi.data.FreeAttributesHolder
 import org.objectionary.deog.name
@@ -36,7 +31,6 @@ import org.objectionary.deog.repr.DeogGraph
 import org.w3c.dom.Document
 import org.w3c.dom.Element
 import org.w3c.dom.Node
-import java.io.File
 import java.io.FileOutputStream
 import java.io.OutputStream
 import java.io.UnsupportedEncodingException

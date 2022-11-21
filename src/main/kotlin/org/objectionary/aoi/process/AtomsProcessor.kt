@@ -24,21 +24,24 @@
 
 package org.objectionary.aoi.process
 
+import org.objectionary.aoi.data.FreeAtomAttribute
+import org.objectionary.aoi.data.FreeAttributesHolder
+import org.objectionary.deog.abstract
+import org.objectionary.deog.base
+import org.objectionary.deog.launch.documents
+import org.objectionary.deog.line
+import org.objectionary.deog.name
+import org.objectionary.deog.packageName
+import org.objectionary.deog.repr.DeogGraph
 import com.jcabi.xml.XML
 import com.jcabi.xml.XMLDocument
 import com.yegor256.xsline.TrClasspath
 import com.yegor256.xsline.Xsline
 import org.eolang.parser.ParsingTrain
-import org.objectionary.aoi.data.FreeAtomAttribute
-import org.objectionary.aoi.data.FreeAttributesHolder
-import org.objectionary.deog.*
-import org.objectionary.deog.launch.documents
-import org.objectionary.deog.repr.DeogGraph
 import org.slf4j.LoggerFactory
 import org.w3c.dom.Document
 import org.w3c.dom.Node
 import java.io.File
-import java.io.FileOutputStream
 import javax.xml.parsers.DocumentBuilderFactory
 
 /**
@@ -81,7 +84,7 @@ class AtomsProcessor(private val graph: DeogGraph) {
                                     continue
                                 }
                                 if (base(ch) == null && name(ch) != null && abstract(ch) == null &&
-                                    (line(ch) == line(obj) || line(ch)?.toInt() == line(obj)?.toInt()?.plus(1))
+                                        (line(ch) == line(obj) || line(ch)?.toInt() == line(obj)?.toInt()?.plus(1))
                                 ) {
                                     val freeAtomAttr = FreeAtomAttribute(name(ch)!!, obj)
                                     val objects = atomNode.childNodes.item(3).childNodes
