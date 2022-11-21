@@ -27,7 +27,7 @@ package org.objectionary.aoi.unit
 import org.objectionary.aoi.TestBase
 import org.objectionary.aoi.data.FreeAttributesHolder
 import org.objectionary.deog.launch.documents
-import org.objectionary.deog.launch.launch
+import org.objectionary.deog.launch.launchDeog
 import org.objectionary.deog.repr.DeogGraph
 import org.apache.commons.io.FileUtils
 import org.slf4j.LoggerFactory
@@ -46,7 +46,7 @@ open class UnitTestBase : TestBase {
         val path = getTestName()
         documents.clear()
         FreeAttributesHolder.storage.clear()
-        val graph = launch(constructInPath(path), "aoi")
+        val graph = launchDeog(constructInPath(path), "aoi")
         testSteps(graph)
         val out = ByteArrayOutputStream()
         printAttributes(out)

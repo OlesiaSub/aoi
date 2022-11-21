@@ -188,12 +188,12 @@
       </obj>
       <obj fqn="bool.and.x">
          <inferred>
-            <obj fqn="bool"/>
+            <obj fqn="org.eolang.bool"/>
          </inferred>
       </obj>
       <obj fqn="bool.or.x">
          <inferred>
-            <obj fqn="bool"/>
+            <obj fqn="org.eolang.bool"/>
          </inferred>
       </obj>
    </aoi>

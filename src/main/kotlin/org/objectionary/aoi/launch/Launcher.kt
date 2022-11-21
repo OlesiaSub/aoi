@@ -30,6 +30,7 @@ import org.objectionary.aoi.process.InnerUsageProcessor
 import org.objectionary.aoi.process.InstanceUsageProcessor
 import org.objectionary.aoi.transformer.XmirTransformer
 import org.objectionary.deog.launch.documents
+import org.objectionary.deog.launch.launchDeog
 import org.slf4j.LoggerFactory
 
 private val logger = LoggerFactory.getLogger("org.objectionary.oi.launch.Launcher")
@@ -42,7 +43,7 @@ private val logger = LoggerFactory.getLogger("org.objectionary.oi.launch.Launche
 fun launch(path: String) {
     documents.clear()
     FreeAttributesHolder.storage.clear()
-    val graph = org.objectionary.deog.launch.launch(path, "aoi")
+    val graph = launchDeog(path, "aoi")
     AtomsProcessor(graph).processAtoms()
     InnerUsageProcessor(graph).processInnerUsages()
     InstanceUsageProcessor(graph).processInstanceUsages()

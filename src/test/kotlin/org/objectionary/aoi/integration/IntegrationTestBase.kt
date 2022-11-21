@@ -26,8 +26,8 @@ package org.objectionary.aoi.integration
 
 import org.objectionary.aoi.TestBase
 import org.objectionary.aoi.launch.launch
-import org.objectionary.ddr.launch.documents
 import org.apache.commons.io.FileUtils
+import org.objectionary.deog.launch.documents
 import org.slf4j.LoggerFactory
 import java.io.BufferedReader
 import java.io.File

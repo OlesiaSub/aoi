@@ -25,15 +25,15 @@ SOFTWARE.
 <list>
   <atom>
     <name>org.eolang.bool.and</name>
-    <objects>
+    <param>
       <o name="org.eolang.bool"/>
-    </objects>
+    </param>
   </atom>
   <atom>
     <name>org.eolang.bool.or</name>
-    <objects>
+    <param>
       <o name="org.eolang.bool"/>
-    </objects>
+    </param>
   </atom>
   <atom>
     <name>org.eolang.bool.if</name>
