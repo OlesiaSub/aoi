@@ -29,16 +29,10 @@ import org.objectionary.aoi.process.AtomsProcessor
 import org.objectionary.aoi.process.InnerUsageProcessor
 import org.objectionary.aoi.process.InstanceUsageProcessor
 import org.objectionary.aoi.transformer.XmirTransformer
-import org.objectionary.ddr.graph.AttributesSetter
-import org.objectionary.ddr.graph.CondAttributesSetter
-import org.objectionary.ddr.graph.InnerPropagator
-import org.objectionary.ddr.launch.buildGraph
-import org.objectionary.ddr.launch.documents
+import org.objectionary.deog.launch.documents
 import org.slf4j.LoggerFactory
-import java.io.File
 
 private val logger = LoggerFactory.getLogger("org.objectionary.oi.launch.Launcher")
-private val sep = File.separatorChar
 
 /**
  * Aggregates the whole pipeline.
@@ -48,11 +42,8 @@ private val sep = File.separatorChar
 fun launch(path: String) {
     documents.clear()
     FreeAttributesHolder.storage.clear()
-    val graph = buildGraph(path, false, "aoi")
-    CondAttributesSetter(graph).processConditions()
-    AttributesSetter(graph).setAttributes()
+    val graph = org.objectionary.deog.launch.launch(path, "aoi")
     AtomsProcessor(graph).processAtoms()
-    InnerPropagator(graph).propagateInnerAttrs()
     InnerUsageProcessor(graph).processInnerUsages()
     InstanceUsageProcessor(graph).processInstanceUsages()
     val transformer = XmirTransformer(graph, documents)

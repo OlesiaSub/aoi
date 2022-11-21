@@ -26,8 +26,8 @@ package org.objectionary.aoi.transformer
 
 import org.objectionary.aoi.data.FreeAtomAttribute
 import org.objectionary.aoi.data.FreeAttributesHolder
-import org.objectionary.ddr.graph.name
-import org.objectionary.ddr.graph.repr.Graph
+import org.objectionary.deog.name
+import org.objectionary.deog.repr.DeogGraph
 import org.w3c.dom.Document
 import org.w3c.dom.Element
 import org.w3c.dom.Node
@@ -45,7 +45,7 @@ import javax.xml.transform.stream.StreamSource
  * Transforms xmir documents by adding an aoi section to each of them
  */
 class XmirTransformer(
-    private val graph: Graph,
+    private val graph: DeogGraph,
     private val documents: MutableMap<Document, String>
 ) {
     /**
@@ -72,7 +72,7 @@ class XmirTransformer(
                 val fqn = getFqn(el.name, el.holderObject)
                 obj.setAttribute("fqn", fqn)
                 val inferred: Element = parent.ownerDocument.createElement("inferred")
-                graph.igNodes.filter { node ->
+                graph.dgNodes.filter { node ->
                     node.name ?: return@filter false
                     for (attr in el.appliedAttributes) {
                         // @todo #14:30min differentiate not only by name but also by the number of parameters

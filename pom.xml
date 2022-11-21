@@ -269,8 +269,8 @@ SOFTWARE.
     </dependency>
     <dependency>
       <groupId>org.eolang</groupId>
-      <artifactId>ddr</artifactId>
-      <version>0.0.9</version>
+      <artifactId>deog</artifactId>
+      <version>0.0.3</version>
     </dependency>
     <dependency>
       <groupId>xml-apis</groupId>

@@ -24,21 +24,24 @@ SOFTWARE.
 -->
 <list>
   <atom>
-    <name>bool.and</name>
+    <name>org.eolang.bool.and</name>
     <objects>
-      <o name="bool"/>
+      <o name="org.eolang.bool"/>
     </objects>
   </atom>
   <atom>
-    <name>bool.or</name>
+    <name>org.eolang.bool.or</name>
     <objects>
-      <o name="bool"/>
+      <o name="org.eolang.bool"/>
     </objects>
   </atom>
   <atom>
-    <name>bool.if</name>
-    <objects>
-      <o name="bool"/>
-    </objects>
+    <name>org.eolang.bool.if</name>
+    <param>
+      <o name="org.eolang.bool"/>
+    </param>
+    <param>
+      <o name="int"/>
+    </param>
   </atom>
 </list>

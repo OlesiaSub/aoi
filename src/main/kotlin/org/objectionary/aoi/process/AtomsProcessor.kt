@@ -26,11 +26,11 @@ package org.objectionary.aoi.process
 
 import org.objectionary.aoi.data.FreeAtomAttribute
 import org.objectionary.aoi.data.FreeAttributesHolder
-import org.objectionary.ddr.graph.abstract
-import org.objectionary.ddr.graph.base
-import org.objectionary.ddr.graph.line
-import org.objectionary.ddr.graph.name
-import org.objectionary.ddr.graph.repr.Graph
+import org.objectionary.deog.abstract
+import org.objectionary.deog.base
+import org.objectionary.deog.line
+import org.objectionary.deog.name
+import org.objectionary.deog.repr.DeogGraph
 import org.slf4j.LoggerFactory
 import org.w3c.dom.Document
 import javax.xml.parsers.DocumentBuilderFactory
@@ -38,7 +38,7 @@ import javax.xml.parsers.DocumentBuilderFactory
 /**
  * Class for processing atoms and their restrictions
  */
-class AtomsProcessor(private val graph: Graph) {
+class AtomsProcessor(private val graph: DeogGraph) {
     private val logger = LoggerFactory.getLogger(this.javaClass)
 
     /**

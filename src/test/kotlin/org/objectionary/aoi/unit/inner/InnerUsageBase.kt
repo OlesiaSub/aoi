@@ -26,14 +26,14 @@ package org.objectionary.aoi.unit.inner
 
 import org.objectionary.aoi.process.InnerUsageProcessor
 import org.objectionary.aoi.unit.UnitTestBase
-import org.objectionary.ddr.graph.repr.Graph
+import org.objectionary.deog.repr.DeogGraph
 import java.io.File
 
 /**
  * Base class for graph builder testing
  */
 open class InnerUsageBase : UnitTestBase() {
-    override fun testSteps(graph: Graph) {
+    override fun testSteps(graph: DeogGraph) {
         InnerUsageProcessor(graph).processInnerUsages()
     }
 

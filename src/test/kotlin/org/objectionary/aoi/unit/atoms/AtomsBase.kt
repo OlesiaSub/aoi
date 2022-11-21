@@ -30,8 +30,8 @@ import org.objectionary.aoi.process.AtomsProcessor
 import org.objectionary.aoi.process.InnerUsageProcessor
 import org.objectionary.aoi.process.InstanceUsageProcessor
 import org.objectionary.aoi.unit.UnitTestBase
-import org.objectionary.ddr.graph.name
-import org.objectionary.ddr.graph.repr.Graph
+import org.objectionary.deog.name
+import org.objectionary.deog.repr.DeogGraph
 import java.io.ByteArrayOutputStream
 import java.io.File
 
@@ -39,7 +39,7 @@ import java.io.File
  * Base class for graph builder testing
  */
 open class AtomsBase : UnitTestBase() {
-    override fun testSteps(graph: Graph) {
+    override fun testSteps(graph: DeogGraph) {
         AtomsProcessor(graph).processAtoms()
         InnerUsageProcessor(graph).processInnerUsages()
         InstanceUsageProcessor(graph).processInstanceUsages()

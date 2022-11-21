@@ -26,12 +26,9 @@ package org.objectionary.aoi.unit
 
 import org.objectionary.aoi.TestBase
 import org.objectionary.aoi.data.FreeAttributesHolder
-import org.objectionary.ddr.graph.AttributesSetter
-import org.objectionary.ddr.graph.CondAttributesSetter
-import org.objectionary.ddr.graph.InnerPropagator
-import org.objectionary.ddr.graph.repr.Graph
-import org.objectionary.ddr.launch.buildGraph
-import org.objectionary.ddr.launch.documents
+import org.objectionary.deog.launch.documents
+import org.objectionary.deog.launch.launch
+import org.objectionary.deog.repr.DeogGraph
 import org.apache.commons.io.FileUtils
 import org.slf4j.LoggerFactory
 import java.io.BufferedReader
@@ -49,10 +46,7 @@ open class UnitTestBase : TestBase {
         val path = getTestName()
         documents.clear()
         FreeAttributesHolder.storage.clear()
-        val graph = buildGraph(constructInPath(path))
-        CondAttributesSetter(graph).processConditions()
-        AttributesSetter(graph).setAttributes()
-        InnerPropagator(graph).propagateInnerAttrs()
+        val graph = launch(constructInPath(path), "aoi")
         testSteps(graph)
         val out = ByteArrayOutputStream()
         printAttributes(out)
@@ -76,7 +70,7 @@ open class UnitTestBase : TestBase {
      * @param graph to be analyzed
      */
     @Suppress("EMPTY_BLOCK_STRUCTURE_ERROR")
-    open fun testSteps(graph: Graph) {}
+    open fun testSteps(graph: DeogGraph) {}
 
     /**
      * Prints attributes to output stream

@@ -27,28 +27,28 @@ package org.objectionary.aoi.process
 import org.objectionary.aoi.data.FreeAttribute
 import org.objectionary.aoi.data.FreeAttributesHolder
 import org.objectionary.aoi.data.Parameter
-import org.objectionary.ddr.graph.abstract
-import org.objectionary.ddr.graph.base
-import org.objectionary.ddr.graph.line
-import org.objectionary.ddr.graph.name
-import org.objectionary.ddr.graph.repr.Graph
+import org.objectionary.deog.abstract
+import org.objectionary.deog.base
+import org.objectionary.deog.line
+import org.objectionary.deog.name
+import org.objectionary.deog.repr.DeogGraph
 import org.w3c.dom.Node
 
 /**
  * Processes usages of free attributes that occur inside the parent object body
  */
-class InnerUsageProcessor(private val graph: Graph) {
+class InnerUsageProcessor(private val graph: DeogGraph) {
     /**
      * Processes inner usages
      */
     fun processInnerUsages() {
-        graph.igNodes.forEach { obj ->
+        graph.dgNodes.forEach { obj ->
             deepTraversal(obj.body, obj.body)
         }
     }
 
     private fun deepTraversal(node: Node, origNode: Node) {
-        if (node.childNodes.length == 0 || (graph.igNodes.find { it.body == node } != null && graph.igNodes.find { it.body == node }?.body != origNode)) {
+        if (node.childNodes.length == 0 || (graph.dgNodes.find { it.body == node } != null && graph.dgNodes.find { it.body == node }?.body != origNode)) {
             return
         } else {
             val children = node.childNodes

@@ -27,17 +27,17 @@ package org.objectionary.aoi.process
 import org.objectionary.aoi.data.FreeAttribute
 import org.objectionary.aoi.data.FreeAttributesHolder
 import org.objectionary.aoi.data.Parameter
-import org.objectionary.ddr.graph.base
-import org.objectionary.ddr.graph.findRef
-import org.objectionary.ddr.graph.line
-import org.objectionary.ddr.graph.name
-import org.objectionary.ddr.graph.repr.Graph
+import org.objectionary.deog.base
+import org.objectionary.deog.findRef
+import org.objectionary.deog.line
+import org.objectionary.deog.name
+import org.objectionary.deog.repr.DeogGraph
 import org.w3c.dom.Node
 
 /**
  * Processes usages of free attributes that are reached via instances of objects
  */
-class InstanceUsageProcessor(private val graph: Graph) {
+class InstanceUsageProcessor(private val graph: DeogGraph) {
     /**
      * Processes instance usages
      */
@@ -46,7 +46,7 @@ class InstanceUsageProcessor(private val graph: Graph) {
             if (base(obj)?.startsWith(".") == true) {
                 val parentAbstract =
                     findRef(obj.previousSibling.previousSibling, graph.initialObjects, graph) ?: return@forEach
-                val igAbstract = graph.igNodes.find { it.name == name(parentAbstract) && it.body == parentAbstract }
+                val igAbstract = graph.dgNodes.find { it.name == name(parentAbstract) && it.body == parentAbstract }
                 if (igAbstract != null && isParameter(parentAbstract, base(obj)?.removePrefix("."))) {
                     val application = obj.nextSibling.nextSibling
                     if (base(application)?.startsWith(".") == true) {

@@ -26,28 +26,28 @@ package org.objectionary.aoi.process
 
 import org.objectionary.aoi.data.FreeAttributesHolder
 import org.objectionary.aoi.data.Parameter
-import org.objectionary.ddr.graph.base
-import org.objectionary.ddr.graph.findRef
-import org.objectionary.ddr.graph.name
-import org.objectionary.ddr.graph.repr.Graph
+import org.objectionary.deog.base
+import org.objectionary.deog.findRef
+import org.objectionary.deog.name
+import org.objectionary.deog.repr.DeogGraph
 
 /**
  * Processes objects which are used to initialize free attributes
  */
-class InitializationProcessor(private val graph: Graph) {
+class InitializationProcessor(private val graph: DeogGraph) {
     /**
      * Processes objects which are used to initialize free attributes
      */
     fun processInitializations() {
         graph.initialObjects.forEach { obj ->
-            if (graph.igNodes.map { it.name }.contains(base(obj))) {
+            if (graph.dgNodes.map { it.name }.contains(base(obj))) {
                 val abstract = findRef(obj, graph.initialObjects, graph) ?: return@forEach
                 val children = obj.childNodes
                 for (i in 0 until children.length) {
                     val ch = children.item(i)
                     val param = FreeAttributesHolder.storage.find { it.name == name(abstract.childNodes.item(i)) && it.holderObject == abstract } ?: continue
                     val ref = findRef(ch, graph.initialObjects, graph) ?: continue
-                    val dgAbstract = graph.igNodes.find { it.body == ref } ?: continue
+                    val dgAbstract = graph.dgNodes.find { it.body == ref } ?: continue
                     dgAbstract.attributes.forEach { param.appliedAttributes.add(Parameter(".${it.name}")) }
                 }
             }
