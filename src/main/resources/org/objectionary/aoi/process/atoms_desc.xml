@@ -39,9 +39,10 @@ SOFTWARE.
     <name>org.eolang.bool.if</name>
     <param>
       <o name="org.eolang.bool"/>
+      <o name="smth.else"/>
     </param>
     <param>
-      <o name="int"/>
+      <o name="org.eolang.bool"/>
     </param>
   </atom>
 </list>

@@ -1,0 +1,15 @@
+---
+org.eolang.bool.and:
+  p1:
+    - org.eolang.bool
+
+org.eolang.bool.or:
+  p1:
+    - org.eolang.bool
+
+org.eolang.bool.if:
+  p1:
+    - org.eolang.bool
+    - smth.else
+  p2:
+    - org.eolang.bool

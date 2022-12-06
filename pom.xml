@@ -269,6 +269,11 @@ SOFTWARE.
     </dependency>
     <dependency>
       <groupId>org.eolang</groupId>
+      <artifactId>eo-runtime</artifactId>
+      <version>0.28.10</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eolang</groupId>
       <artifactId>deog</artifactId>
       <version>0.0.4</version>
     </dependency>
